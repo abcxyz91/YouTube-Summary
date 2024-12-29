@@ -63,7 +63,7 @@ def get_video_id(video_link):
         return f"Error: {str(e)}"
 
 
-# Get YouTube transcript from pytube
+# Get YouTube transcript from video ID
 def get_transcript(video_id):
     try:
         transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=["en", "ja", "vi"])
