@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Video Summary</h1>
-    <div>
-        <h2>Summary:</h2>
-        <p>{{ summary | safe }}</p>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Video Summary</h1>
+        <div class="card shadow p-4">
+            <h2>Summary:</h2>
+            <p>{{ summary | safe }}</p>
+            <div class="text-center mt-4">
+                <a href="/" class="btn btn-secondary">Summarize Another Video</a>
+            </div>
+        </div>
     </div>
-    <a href="/">Summarize Another Video</a>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2025 Duong Anh Minh. All rights reserved.</span>
+        </div>
+    </footer>
 </body>
 </html>

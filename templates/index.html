@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Summarize YouTube Videos</h1>
-    <form action="/summary" method="POST">
-        <label for="link">YouTube Link:</label>
-        <input type="text" id="link" name="link" required>
-        <button type="submit">Summarize</button>
-    </form>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Summarize YouTube Videos</h1>
+        <div class="card shadow p-4">
+            <form action="/summary" method="POST">
+                <div class="mb-3">
+                    <label for="link" class="form-label">YouTube Link:</label>
+                    <input type="text" id="link" name="link" class="form-control" placeholder="Paste YouTube link here" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Summarize</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2025 Duong Anh Minh. All rights reserved.</span>
+        </div>
+    </footer>
 </body>
 </html>

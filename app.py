@@ -1,11 +1,17 @@
 import google.generativeai as genai
+from dotenv import load_dotenv
 from youtube_transcript_api import YouTubeTranscriptApi
 from flask import Flask, request, render_template
 import markdown
 import re
 import os
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+# Load environment variables and validate API key
+load_dotenv()
+if not os.getenv("GEMINI_API_KEY"):
+    raise ValueError("API key is missing or invalid")
+else:
+    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # Setup system instruction prompt
 SYSTEM_PROMPT = """I have a transcript from a YouTube video,
@@ -63,7 +69,7 @@ def get_video_id(video_link):
         return f"Error: {str(e)}"
 
 
-# Get YouTube transcript from pytube
+# Get YouTube transcript from video ID
 def get_transcript(video_id):
     try:
         transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=["en", "ja", "vi"])
