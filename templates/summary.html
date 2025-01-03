@@ -3,18 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Video Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <div class="container py-5">
-        <h1 class="text-center mb-4">Video Summary</h1>
-        <div class="card shadow p-4">
-            <h2>Summary:</h2>
-            <p>{{ summary | safe }}</p>
-            <div class="text-center mt-4">
-                <a href="/" class="btn btn-secondary">Summarize Another Video</a>
-            </div>
+<body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold mb-6">Video Summary</h1>
+        
+        {% if video_id %}
+        <div class="mb-8">
+            <iframe 
+                width="100%" 
+                height="400" 
+                src="https://www.youtube.com/embed/{{ video_id }}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                class="rounded-lg shadow-md"
+            ></iframe>
+        </div>
+        {% endif %}
+        
+        <div class="prose max-w-none">
+            {{ summary | safe }}
+        </div>
+        
+        <div class="mt-8">
+            <a href="/" 
+               class="inline-block bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+                Summarize Another Video
+            </a>
         </div>
     </div>
     <footer class="footer mt-auto py-3 bg-light">
